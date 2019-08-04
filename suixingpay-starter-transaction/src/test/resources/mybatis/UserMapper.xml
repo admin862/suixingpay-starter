@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.suixingpay.takin.transaction.demo.mapper.UserMapper">
+  <resultMap id="Result" type="User">
+    <id column="id" property="id" />
+    <result column="name" property="name" />
+    <result column="age" property="age" />
+    <result column="phone" property="phone" />
+    <result column="email" property="email" />
+    <result column="creater" property="creater" />
+    <result column="updater" property="updater" />
+    <result column="dateCreated" property="date_created" />
+    <result column="lastUpdated" property="last_updated" />
+    <result column="version" property="version" />
+  </resultMap>
+
+  <sql id="Table">
+    USER
+  </sql>
+  <sql id="dynamicWhere">
+    <where>
+      <if test="name != null"> AND name =#{name}  </if>
+      <if test="age != null"> AND age = #{age}  </if>
+      <if test="phone != null"> AND phone = #{phone}  </if>
+      <if test="email != null"> AND email = #{email}  </if>
+    </where>
+  </sql>
+  <sql id="columns">
+    id, name, phone, email, age, creater, updater, date_created, last_updated, version
+  </sql>
+  <insert id="addUser" parameterType="User">
+    insert into
+    <include refid="Table" />
+    (name, phone, email, age, creater, updater, date_created, last_updated, version)
+    values
+    (#{name}, #{phone}, #{email}, #{age}, #{creater}, #{updater}, now(), now(), 1)
+  </insert>
+  <update id="updateUser" parameterType="User">
+    update
+    <include refid="Table" />
+    <set>
+      <if test="name != null and name != ''"> name = #{name},</if>
+      <if test="phone != null and phone != ''"> phone = #{phone},</if>
+      <if test="email != null and email != ''"> email = #{email},</if>
+      <if test="age != null"> age = #{age}, </if>
+      <if test="email != null and email != ''"> email = #{email},</if>
+      <if test="updater != null "> updater = #{updater}, </if>
+      lastUpdated = now(),
+      version = version+1
+    </set>
+    where id = #{id}
+  </update>
+  <delete id="deleteUser">
+    DELETE FROM
+    <include refid="Table" />
+    WHERE id = #{id}
+  </delete>
+  <delete id="deleteBatchIds">
+    DELETE FROM
+    <include refid="Table" />
+    where id in
+    <foreach collection="pkList" item="i" open="(" separator="," close=")">
+      #{i}
+    </foreach>
+  </delete>
+  <select id="getById" resultMap="Result">
+    SELECT
+    <include refid="columns" />
+    FROM
+    <include refid="Table" />
+    WHERE id=#{id}
+  </select>
+  <select id="findAll" resultMap="Result">
+    SELECT
+    <include refid="columns" />
+    FROM
+    <include refid="Table" />
+  </select>
+
+  <select id="count" parameterType="User" resultType="java.lang.Long">
+    select count(*) from
+    <include refid="Table" />
+    <include refid="dynamicWhere" />
+  </select>
+
+  <select id="find" parameterType="User" resultMap="Result">
+    select
+    <include refid="columns" />
+    from
+    <include refid="Table" />
+    <include refid="dynamicWhere" />
+  </select>
+</mapper>

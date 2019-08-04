@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- File appender logback configuration provided for import, equivalent 
+  to the programmatic initialization performed by Boot -->
+
+<included>
+  <appender name="FILE"
+    class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+      <layout class="com.suixingpay.takin.logback.layout.MangoPatternLayout">
+        <patternRegex>${SENSITIVE}</patternRegex> <!-- Y屏蔽;N不屏蔽 -->
+        <pattern>${FILE_LOG_PATTERN}</pattern>
+      </layout>
+      <immediateFlush>${FILE_IMMEDIATE_FLUSH}</immediateFlush>
+      <charset>utf8</charset>
+    </encoder>
+    <file>${LOG_PATH}/${LOG_FILE_NAME}.log</file>
+    <rollingPolicy
+      class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_PATH}/%d{yyyyMMdd}/${LOG_FILE_NAME}.%i.log
+      </fileNamePattern>
+      <maxFileSize>${MAX_FILE_SIZE}</maxFileSize>
+      <maxHistory>${MAX_HISTORY}</maxHistory>
+      <totalSizeCap>50GB</totalSizeCap>
+    </rollingPolicy>
+  </appender>
+
+  <!-- 异步输出日志 -->
+  <appender name="ASYNC_FILE" class="ch.qos.logback.classic.AsyncAppender">
+    <discardingThreshold>${DISCARDING_THRESHOLD}</discardingThreshold>
+    <queueSize>${QUEUE_SIZE}</queueSize>
+    <includeCallerData>${INCLUDE_CALLER_DATA}</includeCallerData>
+    <!-- 添加附加的appender,最多只能添加一个 -->
+    <appender-ref ref="FILE" />
+  </appender>
+
+  <!-- 错误日志 -->
+  <appender name="ERROR"
+    class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+      <layout class="com.suixingpay.takin.logback.layout.MangoPatternLayout">
+        <patternRegex>${SENSITIVE}</patternRegex> <!-- Y屏蔽;N不屏蔽 -->
+        <pattern>${FILE_LOG_PATTERN}</pattern>
+      </layout>
+      <immediateFlush>${ERROR_IMMEDIATE_FLUSH}</immediateFlush>
+      <charset>utf8</charset>
+    </encoder>
+    <file>${LOG_PATH}/${ERROR_LOG_FILE_NAME}.log</file>
+    <rollingPolicy
+      class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_PATH}/%d{yyyyMMdd}/${ERROR_LOG_FILE_NAME}.%i.log
+      </fileNamePattern>
+      <maxFileSize>${MAX_FILE_SIZE}</maxFileSize>
+      <maxHistory>${MAX_HISTORY}</maxHistory>
+      <totalSizeCap>50GB</totalSizeCap>
+    </rollingPolicy>
+    <!-- 只打印错误日志 -->
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>ERROR</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+  </appender>
+</included>

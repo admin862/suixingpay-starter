@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.suixingpay.takin.mybatis.page.demo.mapper.SystemLogMapper">
+
+  <resultMap id="result" type="SystemLog">
+    <result column="UUID" property="uuid" />
+    <result column="SYSTEM" property="system" />
+    <result column="METHOD" property="action" />
+  </resultMap>
+  <sql id="columns">
+    UUID, SYSTEM, METHOD, ACTION
+  </sql>
+  <sql id="table">
+    SYSTEM_LOG
+  </sql>
+  <sql id="dynamicWhere">
+    <where>
+      <if test="uuid != null"> AND UUID =#{uuid}  </if>
+      <if test="system != null"> AND SYSTEM = #{system}  </if>
+      <if test="action != null"> AND METHOD = #{action}  </if>
+    </where>
+  </sql>
+  <select id="count" parameterType="SystemLog" resultType="java.lang.Long">
+    select count(*) from
+    <include refid="table" />
+    <include refid="dynamicWhere" />
+  </select>
+  <select id="find" parameterType="SystemLog" resultMap="result">
+    select
+    <include refid="columns" />
+    from
+    <include refid="table" />
+    <include refid="dynamicWhere" />
+  </select>
+</mapper>

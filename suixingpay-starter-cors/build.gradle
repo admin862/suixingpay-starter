@@ -1,0 +1,9 @@
+dependencies {
+    compile "org.hibernate:hibernate-validator"
+    compile "org.springframework:spring-webmvc"
+    compile "org.springframework.boot:spring-boot-autoconfigure"
+    compileOnly "javax.servlet:javax.servlet-api"
+    compileOnly "org.projectlombok:lombok"
+    testCompile "org.springframework.boot:spring-boot-starter-web"
+}
+description = "跨域请求配置"

@@ -1,0 +1,5 @@
+dependencies {
+    compile "com.caucho:hessian:$hessianVersion"
+    compile "org.springframework.boot:spring-boot-autoconfigure"
+}
+description = "序列化反序列化"

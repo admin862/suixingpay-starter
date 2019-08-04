@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>登录</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script type="text/javascript" src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <form id="loginForm" action="auth/login" method="post">
+    <input type="text" id="name" name="name" placeholder="请输入登录名" /><br> 
+    <input type="password" id="pass" name="pass" placeholder="请输入密码" /><br> 
+    <input type="text" id="code" name="code" placeholder="请输入验证码" /><br>
+    <span> 
+    <img id="codeimg" width="200" height="50" src="" /> 
+    <input type="hidden" id="codekey" name="codekey" />
+    </span><br>
+    <button type="submit">登录</button>
+  </form>
+</body>
+</html>
+<script type="text/javascript">
+<!--
+$.getJSON("captcha/gen",function(res){
+    $('#codeimg').attr('src', res.base64Code);
+    $('#codekey').val(res.key);
+  });
+//-->
+</script>

@@ -1,0 +1,5 @@
+dependencies {
+  compile "org.mybatis.spring.boot:mybatis-spring-boot-starter:$mybatisSpringBootStarterVersion"
+  compile "org.springframework.boot:spring-boot-autoconfigure"
+}
+description = "MyBatis读写分离数据源插件"

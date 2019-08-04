@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/2002/xmlspec/dtd/2.10/xmlspec.dtd">
+<configuration>
+    <!-- 控制台输出日志 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{mm:ss} %-5level %logger{36} >>> %msg%n</pattern>
+        </encoder>
+    </appender>
+     <!-- 自定义 -->
+    <appender name="kafkaAppender" class="com.suixingpay.takin.common.logger.appender.KafkaMsgAppender">
+           <topic>test1</topic>
+           <env>prod</env>
+            <encoder class="com.suixingpay.takin.common.logger.appender.KafkaMsgEncoder">
+      		   <layout class="com.suixingpay.takin.common.logger.appender.KafkaMsgLayout">
+                   <Pattern>%kafkaLogPattern{交易系统}%n</Pattern>  
+               </layout>
+            </encoder>
+    </appender>
+    <!--根logger控制-->
+    <root level="DEBUG">
+     	<appender-ref ref="kafkaAppender" />
+    </root>
+</configuration>

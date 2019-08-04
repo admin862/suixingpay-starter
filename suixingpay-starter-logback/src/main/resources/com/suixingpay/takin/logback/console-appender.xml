@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Console appender logback configuration provided for import, equivalent to the programmatic initialization performed 
+  by Boot -->
+
+<included>
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+      <layout class="com.suixingpay.takin.logback.layout.MangoPatternLayout">
+        <patternRegex>${SENSITIVE}</patternRegex> <!-- Y屏蔽;N不屏蔽 -->
+        <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+      </layout>
+      <charset>utf8</charset>
+    </encoder>
+  </appender>
+</included>

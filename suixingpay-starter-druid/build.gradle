@@ -1,0 +1,8 @@
+dependencies {
+    compile "org.slf4j:slf4j-api"
+    compile "com.alibaba:druid-spring-boot-starter:$druidSpringBootStarterVersion"
+    compile("commons-codec:commons-codec")
+    compileOnly "javax.servlet:javax.servlet-api"
+    compileOnly project(':suixingpay-starter-manager')
+}
+description = "数据库连接池"

@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.suixingpay.takin.rabbitmq.autoconfigure.RabbitMQConfiguration,\
+com.suixingpay.takin.rabbitmq.autoconfigure.SxfRabbitMQManagerConfiguration,\
+com.suixingpay.takin.rabbitmq.autoconfigure.RetryCacheConfiguration

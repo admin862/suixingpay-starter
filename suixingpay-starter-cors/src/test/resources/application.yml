@@ -1,0 +1,23 @@
+#基本信息
+info:
+  application: cors-demo
+  description: cors-demo
+  author: jiayu.qiu
+
+spring: 
+  application:
+    name: cors-demo
+server:
+  port: ${port:8080}
+
+suixingpay: 
+  cors:
+    enabled: true
+    mapping: /**              #扫描地址 
+    allow-credentials: true   #允许cookie
+    allowed-origins: '*'       #允许的域（如果字符串之中包含空格或特殊字符，需要放在引号之中）
+    allowed-methods: GET,POST,DELETE,PUT,PATCH  #允许的方法
+    allowed-headers: '*'       #允许的头信息（如果字符串之中包含空格或特殊字符，需要放在引号之中）
+    groups:
+      a:
+        mapping: /add/**

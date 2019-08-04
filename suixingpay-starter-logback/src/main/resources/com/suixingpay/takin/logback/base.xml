@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+  Base logback configuration provided for compatibility with Spring Boot 1.1
+  https://logback.qos.ch/manual/index.html
+  https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-logging.html
+
+-->
+
+<included>
+  <include resource="com/suixingpay/takin/logback/defaults.xml" />
+  <property name="SENSITIVE" value="${SENSITIVE:-N}" /><!-- 是否屏蔽敏感信息，默认值为N,如果要打开，设置为Y -->
+  <!-- 日志存放路径，如果外部已经定义了LOG_PATH，则使用使用外部的LOG_PATH，否则使用默认值：./logs -->
+  <property name="LOG_PATH" value="${LOG_PATH:-./logs}" />
+  <!-- 日志文件名，如果外部已经定义了LOG_FILE，则使用使用外部的LOG_FILE，否则使用默认值：${APP_NAME} -->
+  <property name="LOG_FILE_NAME" value="${LOG_FILE_NAME:-server}" />
+  <property name="MAX_FILE_SIZE" value="${MAX_FILE_SIZE:-100MB}"/>
+  <property name="MAX_HISTORY" value="${MAX_HISTORY:-180}"/>
+  <!-- 错误日志文件名 -->
+  <property name="ERROR_LOG_FILE_NAME" value="${LOG_FILE_NAME}.error" />
+  <property name="FILE_IMMEDIATE_FLUSH" value="${FILE_IMMEDIATE_FLUSH:-false}"/>
+  <property name="ERROR_IMMEDIATE_FLUSH" value="${ERROR_IMMEDIATE_FLUSH:-true}"/>
+  <!-- 异步日志参数 -->
+  <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACE、DEBUG、INFO级别的日志 -->
+  <property name="DISCARDING_THRESHOLD" value="${DISCARDING_THRESHOLD:-0}"/>
+  <!-- 更改默认的队列的深度,该值会影响性能.logback的默认值为256，此处将默认值调为2048-->
+  <property name="QUEUE_SIZE" value="${QUEUE_SIZE:-2048}"/>
+  <property name="INCLUDE_CALLER_DATA" value="${INCLUDE_CALLER_DATA:-true}"/>
+  
+  <include resource="com/suixingpay/takin/logback/console-appender.xml" />
+  <include resource="com/suixingpay/takin/logback/file-appender.xml" />
+
+</included>

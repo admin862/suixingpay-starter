@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.suixingpay.takin.swagger2.SwaggerAutoConfiguration,\
+com.suixingpay.takin.swagger2.LogbackPropertiesProxyConfiguration,\
+com.suixingpay.takin.swagger2.TokenPropertiesProxyConfiguration

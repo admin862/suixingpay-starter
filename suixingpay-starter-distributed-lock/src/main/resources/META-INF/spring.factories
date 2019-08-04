@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.suixingpay.takin.distributedlock.autoconfigure.DistributedLockAutoConfigure,\
+com.suixingpay.takin.distributedlock.autoconfigure.DistributedLockConfiguration

@@ -1,0 +1,19 @@
+dependencies {
+    compile project(':suixingpay-starter-util')
+    compile "com.fasterxml.jackson.core:jackson-databind"
+    compile "org.springframework.boot:spring-boot-starter-amqp"
+    compileOnly "org.springframework.boot:spring-boot-autoconfigure"
+    compileOnly "org.springframework.boot:spring-boot-starter-web"
+    compileOnly 'org.springframework.boot:spring-boot-starter-actuator'
+    compileOnly project(':suixingpay-starter-manager')
+    compileOnly project(':suixingpay-starter-serializer')
+
+
+    compileOnly("org.springframework.boot:spring-boot-configuration-processor")// 用于生成文件META-INF/spring-configuration-metadata.json
+    compileOnly("org.projectlombok:lombok")
+    testCompile "org.springframework.boot:spring-boot-starter-web"
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+    testCompile "io.springfox:springfox-swagger2:$swaggerVersion"
+    testCompile "io.springfox:springfox-swagger-ui:$swaggerVersion"
+}
+description = "RabbitMQ封装"

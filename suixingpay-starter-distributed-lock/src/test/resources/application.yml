@@ -1,0 +1,29 @@
+spring:
+  aop:
+    proxy-target-class: false
+  redis:
+    host: 172.16.60.189
+    port: 6379
+    pool:
+      minIdle: 20
+      maxIdle: 200
+      maxWait: 1500
+      maxActive: 2048
+    
+suixingpay:
+  distributedlock:
+    # 多模块或多业务共用时，使用namespace进行区分，避免KEY冲突
+    # 指定namespace，如果此namespaceEnable为true，此处没有设置，则会使用spring.application.name作为namespace
+    namespace: test
+    # 是否开启namespace功能，默认为true,如果不需要使用namespace，需要把此配置设置为false
+    namespaceEnable: true
+    # AOP 执行顺序，默认值为0
+    aopOrder: 0
+    # 配置zookeeper。如果配置了此项，则优先使用zookeeper实现分布式锁，否则使用Redis进行分布式锁
+    # zkServers:10.7.100.95:2181,10.7.100.96:2181,10.7.100.115:2181
+    
+  autoload:
+    cache:
+      config:
+        namespace: test
+debug: false

@@ -1,0 +1,9 @@
+# Bootstrap components
+#org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+
+# Application listeners
+#org.springframework.context.ApplicationListener=\
+#com.suixingpay.takin.logback.listener.ApplicationStartedEventListener
+# Autoconfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.suixingpay.takin.logback.config.TraceAutoConfiguration

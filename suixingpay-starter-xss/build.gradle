@@ -1,0 +1,10 @@
+dependencies {
+    compile "org.springframework.boot:spring-boot-autoconfigure"
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.apache.commons:commons-text:$commonsTextVersion"
+    compileOnly "javax.servlet:javax.servlet-api"
+    compileOnly("org.projectlombok:lombok")
+    // compile 'org.owasp.antisamy:antisamy:1.5.7'
+    testCompile project(":suixingpay-starter-swagger2")
+}
+description = "跨站请求防范"

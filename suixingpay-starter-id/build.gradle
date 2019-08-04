@@ -1,0 +1,10 @@
+dependencies {
+	compileOnly project(":suixingpay-starter-util")
+	compileOnly project(":suixingpay-starter-exception")
+	compileOnly project(":suixingpay-starter-redis")
+	compile "com.fasterxml.jackson.core:jackson-databind"
+	compile('org.springframework.boot:spring-boot-starter')
+	compileOnly('org.projectlombok:lombok')
+}
+description = "全局id"
+

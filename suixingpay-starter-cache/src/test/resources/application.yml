@@ -1,0 +1,33 @@
+debug: false
+spring:
+    aop:
+        proxy-target-class: true
+    application:
+        name: cache-demo
+    datasource:
+        druid:
+            driver-class-name: com.mysql.jdbc.Driver
+            password: test1234
+            url: jdbc:mysql://192.168.176.131:3306/cache_demo?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull
+            username: root
+    redis:
+        host: 172.16.60.189
+        pool:
+            maxActive: 2048
+            maxIdle: 200
+            maxWait: 1500
+            minIdle: 20
+        port: 6379
+
+mybatis:
+    configuration:
+        cacheEnabled: false
+        default-statement-timeout: 5
+    mapperLocations: classpath:mybatis/*.xml
+
+suixingpay:
+    autoload:
+        cache:
+            enable: true
+            enable-read-and-write: true
+            enable-delete: true

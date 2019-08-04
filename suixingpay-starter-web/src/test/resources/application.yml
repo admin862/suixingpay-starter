@@ -1,0 +1,22 @@
+server:
+  port: ${port:8080}
+spring: 
+  aop:
+    proxyTargetClass: true
+#  datasource: 
+#    druid: 
+#      url: jdbc:oracle:thin:@172.16.135.252:1521/bapdb
+#      username: portal
+#      password: portal_sit
+#      driverClassName: oracle.jdbc.OracleDriver
+
+
+suixingpay: 
+  web:
+    converter:
+      string-to-date:
+        enabled: true
+      string-to-base-enum:
+        enabled: true
+  token:
+    enabled: false

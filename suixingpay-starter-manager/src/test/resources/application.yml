@@ -1,0 +1,17 @@
+suixingpay:
+  manager:
+    enabled: true # 是否开启，默认true
+    user-name: admin # 用户名， 默认admin
+    password: sxfAdmin # 密码， 默认sxfAdmin
+    session-name: sxf_manager_auth  # session名称，默认sxf_manager_auth
+    url-patterns: # 权限拦截路径，默认为空
+    - /user/*, 
+    - /test/*  
+    urls:
+    - 
+      title: 随行付
+      url: https://vbill.cn/
+    - 
+      title: 百度
+      url: http://www.baidu.com/
+

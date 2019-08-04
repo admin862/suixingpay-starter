@@ -1,0 +1,43 @@
+#基本信息
+info:
+  application: token-demo
+  description: token-demo
+  author: jiayu.qiu
+
+spring: 
+  application:
+    name: token-demo
+  redis:
+    host: 172.16.60.189
+    port: 6379
+    pool: 
+      maxWait: 1500
+      maxActive: 2048
+      minIdle: 20
+      maxIdle: 200
+server:
+  port: ${port:8080}
+
+suixingpay: 
+  token:
+    client-repository-types:
+    - PARAM
+    - HEADER
+    - COOKIE
+    # 拦截URL
+    path-patterns:
+    - /**
+    # 排除路径，注意：不要把登出的路径给排除
+    exclude-path-patterns: 
+    - /login
+    - /index2
+    - /user/reg.html
+    - /error
+    - /js/**
+    - /css/**
+    - /images/**
+    - /**/favicon.ico
+    - /webjars/**
+    - /swagger-ui.html
+    - /v2/api-docs 
+    - /swagger-resources/**

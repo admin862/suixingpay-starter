@@ -1,0 +1,12 @@
+dependencies {
+    compile "ch.qos.logback:logback-classic"
+    // runtime("org.springframework.boot:spring-boot-devtools")
+    // compile("com.suixingpay.mango:mango_logback:0.0.5-prod-SNAPSHOT")
+    compileOnly("org.springframework.boot:spring-boot-configuration-processor")// 用于生成文件META-INF/spring-configuration-metadata.json
+    compileOnly("org.springframework.boot:spring-boot-starter-web")
+    compileOnly("org.projectlombok:lombok")
+    
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.springframework.boot:spring-boot-starter-web")
+}
+description = "统一日志"

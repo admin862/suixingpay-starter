@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>基础框架内置管理器</title>
+    <link type="text/css" rel="stylesheet" href="webjars/manager-ui/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="webjars/manager-ui/css/bootstrap-vue.css"/>
+</head>
+<body>
+<div id="app">
+    <b-navbar-brand href="#">基础框架内置管理器</b-navbar-brand>
+    <!-- b-table 获取数据和数据名称 :items  :fields -->
+    <b-table striped hover :items="items" :fields="fields" @row-clicked="access">
+        <!-- slot的值关联 table当中 Field 的key值 ，以此进行绑定。 slot-scope的值为 每行的对象（内置） -->
+        <template slot="title" slot-scope="row">
+            <b-link href="#">{{ row.item.title }}</b-link>
+        </template>
+
+    </b-table>
+</div>
+</body>
+
+<script src="webjars/manager-ui/js/vue.min.js"></script>
+<script src="webjars/manager-ui/js/axios.min.js"></script>
+<script src="webjars/manager-ui/js/polyfill.min.js"></script>
+<script src="webjars/manager-ui/js/bootstrap-vue.js"></script>
+<script src="webjars/manager-ui/js/list.js"></script>
+</html>

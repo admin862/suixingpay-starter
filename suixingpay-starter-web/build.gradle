@@ -1,0 +1,10 @@
+dependencies {
+    compile project(":suixingpay-starter-util")
+    compile project(":suixingpay-starter-exception")
+    compile project(":suixingpay-starter-data")
+    compileOnly project(":suixingpay-starter-mybatis")
+    compile project(":suixingpay-starter-swagger2")
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compileOnly("org.projectlombok:lombok")
+}
+description = "WEB组件"

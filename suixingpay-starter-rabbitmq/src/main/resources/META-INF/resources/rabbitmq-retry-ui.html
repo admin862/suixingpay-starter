@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>RabbitMQ消息重发管理器</title>
+    <link type="text/css" rel="stylesheet" href="webjars/manager-ui/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="webjars/manager-ui/css/bootstrap-vue.css"/>
+</head>
+<body>
+<div id="app">
+    <b-navbar toggleable="md" type="dark" variant="info">
+        <b-navbar-brand href="#">RabbitMQ消息重发管理器你</b-navbar-brand>
+        <b-navbar-nav class="ml-auto">
+            <template>
+                <b-btn @click="showModal(true)" v-if="isPaused" size="" variant="success" title="重发功能已关闭，请点击此按钮恢复重发。">
+                    恢复重发
+                </b-btn>
+                <b-btn @click="showModal(false)" v-else size="" variant="secondary" title="暂停重发">
+                    暂停重发
+                </b-btn>
+            </template>
+        </b-navbar-nav>
+    </b-navbar>
+    <b-alert variant="danger"
+             dismissible
+             :show="showDismissibleAlert"
+             @dismissed="showDismissibleAlert=false">
+        RabbitMQ操作异常
+    </b-alert>
+    <!-- b-table 获取数据和数据名称 :items  :fields -->
+    <b-table striped hover :items="items" :fields="fields">
+        <!-- slot的值关联 table当中 Field 的key值 ，以此进行绑定。 slot-scope的值为 每行的对象（内置） -->
+    </b-table>
+    <!--模态b-model 中自带的两个时间 ok cancel可以用 @ok="方法名" 和 @cancel="" 来进行自定义 -->
+    <b-modal id="startConfirm" title="Warning" @ok="handleOk('resume')">
+        <p class="my-4">确定恢复MQ重发？</p>
+    </b-modal>
+    <b-modal id="stopConfirm" title="Warning" @ok="handleOk('pause')">
+        <p class="my-4">确定暂停MQ重发？</p>
+    </b-modal>
+</div>
+</body>
+
+<script src="webjars/manager-ui/js/vue.min.js"></script>
+<script src="webjars/manager-ui/js/axios.min.js"></script>
+<script src="webjars/manager-ui/js/polyfill.min.js"></script>
+<script src="webjars/manager-ui/js/bootstrap-vue.js"></script>
+<script src="webjars/rabbitmq-ui/js/msg-list.js"></script>
+</html>

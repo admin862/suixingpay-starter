@@ -1,0 +1,6 @@
+dependencies {
+    compile "org.springframework.boot:spring-boot-autoconfigure"
+    compile "org.slf4j:slf4j-api"
+    compileOnly("org.projectlombok:lombok")
+}
+description = "表达式解析器"

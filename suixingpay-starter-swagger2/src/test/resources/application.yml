@@ -1,0 +1,63 @@
+#基本信息
+info:
+  application: token-demo
+  description: token-demo
+  author: jiayu.qiu
+
+spring: 
+  application:
+    name: token-demo
+  redis:
+    host: 172.16.60.189
+    port: 6379
+    pool: 
+      maxWait: 1500
+      maxActive: 2048
+      minIdle: 20
+      maxIdle: 200
+server:
+  port: ${port:8080}
+
+suixingpay: 
+  manager:
+    enabled: false
+  logback:
+    trace:
+      enabled: true
+      trace-id: custom-trace-id               #客户端通过参数或Header传过来的追踪ID的参数名称
+      #filter-name: sxfTraceFilter                #自定义Filter设置名称
+      invalid-chars: "[^A-Za-z0-9@_-]"           #避免客户端传入的traceId中的特殊字符打乱日志格式，需要把一些非法字符过滤掉
+      order: -1000                            #排序
+      trace-id-max-length: 16                 #traceId 保留的最大长度，如果超过这个长度，则会截取前面的traceIdMaxLength 长度字符，如果小于等于0，则不限制
+      url-patterns:
+      - /*                     #启用日志Filter的有效路径
+  token:
+    enabled: true
+    client-repository-types:
+    - PARAM
+    - HEADER
+    - COOKIE
+    # 拦截URL
+    path-patterns:
+    - /**
+    # 排除路径，注意：不要把登出的路径给排除
+    exclude-path-patterns: 
+    - /login
+    - /index2
+    - /error-test
+
+  swagger2: 
+    enabled: true
+    title: swagger2demo 
+    description: swagger2demo
+    version: 1.0.0
+    license: 随行付
+    licenseUrl: http://vbill.cn
+    termsOfServiceUrl: http://vbill.cn
+    base-package: com.suixingpay.swagger2demo
+    base-path: /**
+    exclude-path: /error, /ops/**
+    contact:
+      name: qiujiayu
+      url: http://vbill.cn
+      email: qiu_jy@suixingpay.com

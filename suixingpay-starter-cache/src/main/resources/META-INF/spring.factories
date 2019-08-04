@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.suixingpay.takin.cache.autoconfigure.AutoloadCacheManageConfiguration,\
+com.suixingpay.takin.cache.autoconfigure.AutoloadCacheAutoConfigure

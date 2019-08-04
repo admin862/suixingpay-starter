@@ -1,0 +1,28 @@
+rootProject.name = 'suixingpay-starter'
+include 'suixingpay-starter-util' // 基础工具类
+include 'suixingpay-starter-exception' // 异常类的定义以及全局异常处理
+include 'suixingpay-starter-data' // 数据建模
+include 'suixingpay-starter-serializer' // 序列化 
+include 'suixingpay-starter-expression' // 表达式处理器
+include 'suixingpay-starter-manager' // 管理器
+include 'suixingpay-starter-logback' // 统一日志配置以日志追踪
+include 'suixingpay-starter-kaptcha' // 验证码生成工具
+include 'suixingpay-starter-rabbitmq' // RabbitMQ 开发框架
+include 'suixingpay-starter-redis' // Redis工具类
+include 'suixingpay-starter-cache' // 缓存
+include 'suixingpay-starter-token' //基于Token登录验证
+include 'suixingpay-starter-cors' // 跨域请求设置
+include 'suixingpay-starter-xss' // 防xss攻击
+include 'suixingpay-starter-swagger2' // swagger配置
+include 'suixingpay-starter-mybatis-page' // Mybatis 分页插件
+include 'suixingpay-starter-mybatis-dynamic-datasource' // Mybatis 读写分离插件
+include 'suixingpay-starter-mybatis' // Mybatis
+include 'suixingpay-starter-distributed-lock' // 分布式锁及幂等
+include 'suixingpay-starter-validator' // 数据验证扩展
+include 'suixingpay-starter-druid' // 阿里druid连接池扩展
+include 'suixingpay-starter-web' // 控制器工具插件
+include 'suixingpay-starter-transaction' // 数据库事务管理
+include 'suixingpay-starter-id' // 全局id生成器
+include 'suixingpay-starter-schedule' // 热加载定时任务
+include 'suixingpay-starter-drools' // 规则引擎
+include 'suixingpay-starter-ratelimit' // 限流

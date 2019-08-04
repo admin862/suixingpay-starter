@@ -1,0 +1,25 @@
+dependencies {
+    compile project(":suixingpay-starter-serializer")
+    compile project(":suixingpay-starter-expression")
+    compile "org.springframework.boot:spring-boot-autoconfigure"
+    compile "org.springframework:spring-aspects"
+    compile "org.aspectj:aspectjrt"
+    compile "org.aspectj:aspectjweaver"
+    
+    compileOnly "org.springframework.data:spring-data-redis"
+    compileOnly "redis.clients:jedis"
+    compileOnly ("org.apache.zookeeper:zookeeper:$zookeeperVersion"){
+        exclude group: "org.slf4j", module: "slf4j-log4j12"
+        exclude group: "log4j", module: "log4j"
+        exclude group: "com.sun.jdmk", module: "jmxtools"
+        exclude group: "com.sun.jmx", module: "jmxri"
+    }
+    
+    // runtime("org.springframework.boot:spring-boot-devtools")
+    compileOnly("org.springframework.boot:spring-boot-configuration-processor")// 用于生成文件META-INF/spring-configuration-metadata.json
+    compileOnly("org.projectlombok:lombok")
+    testCompile "org.springframework.boot:spring-boot-starter-web"
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+    testCompile project(":suixingpay-starter-cache")
+}
+description = "分布式锁及幂等模块"

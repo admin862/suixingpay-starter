@@ -1,0 +1,25 @@
+dependencies {
+    compile "com.github.qiujiayu:autoload-cache:$autoloadCacheVersion"
+    compile "cglib:cglib:$cglibVersion"
+    compile "org.springframework:spring-aspects"
+    compile "org.aspectj:aspectjrt"
+    compile "org.aspectj:aspectjweaver"
+    compile "org.springframework.boot:spring-boot-autoconfigure"
+    compile "org.springframework.boot:spring-boot-starter-data-redis"
+    compileOnly "org.springframework.boot:spring-boot-starter-web"
+    compileOnly project(':suixingpay-starter-manager')
+
+    // runtime("org.springframework.boot:spring-boot-devtools")
+    compileOnly("org.springframework.boot:spring-boot-configuration-processor")// 用于生成文件META-INF/spring-configuration-metadata.json
+    compileOnly("org.projectlombok:lombok")
+    testCompile "org.springframework.boot:spring-boot-starter-web"
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+    testCompile "org.mybatis.spring.boot:mybatis-spring-boot-starter:$mybatisSpringBootStarterVersion"
+    testCompile "mysql:mysql-connector-java"
+    testCompile "com.alibaba:druid-spring-boot-starter:$druidSpringBootStarterVersion"
+    testCompile "ognl:ognl:3.1.12"
+    testCompile "io.springfox:springfox-swagger2:$swaggerVersion"
+    testCompile "io.springfox:springfox-swagger-ui:$swaggerVersion"
+//    testCompile project(":suixingpay-starter-swagger2")
+}
+description = "缓存模块"

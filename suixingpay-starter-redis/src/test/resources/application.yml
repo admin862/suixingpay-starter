@@ -1,0 +1,29 @@
+debug: 
+  false
+spring:
+  application: 
+    name: redis-test
+  redis: 
+    host: 172.16.60.189
+    port: 6379
+    cluster:
+      nodes: 
+      - 10.7.100.95\:7000
+#      - 10.7.100.95\:7001
+#      - 10.7.100.95\:7002
+#      - 10.7.100.95\:7003
+#      - 10.7.100.97\:7000
+#      - 10.7.100.97\:7001
+#      - 10.7.100.97\:7002
+#      - 10.7.100.97\:7003
+#      maxRedirects: 10
+    pool:
+      maxWait: 1500
+      maxActive: 2048
+      minIdle: 20
+      maxIdle: 200
+
+suixingpay: 
+  redis:
+    namespace-enable: true
+    slow-log-slower-than: 15

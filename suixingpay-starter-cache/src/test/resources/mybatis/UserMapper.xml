@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.suixingpay.takin.cache.demo.mapper.UserMapper">
+
+  <resultMap id="BaseResultMap" type="com.suixingpay.takin.cache.demo.to.User">
+    <id column="id" property="id" />
+    <result column="name" property="name" />
+    <result column="age" property="age" />
+    <result column="sex" property="sex" />
+    <result column="state" property="state" />
+  </resultMap>
+  <sql id="columns">
+    id, name, age, sex, state
+  </sql>
+  <select id="getById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="columns" />
+    from user
+    where ID = #{id}
+  </select>
+  
+  <insert id="addUser" parameterType="com.suixingpay.takin.cache.demo.to.User">
+    insert into user(name, age, sex, state) values(#{name}, #{age}, #{sex}, #{state})
+  </insert>
+</mapper>

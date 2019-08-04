@@ -1,0 +1,46 @@
+spring:
+  application: 
+    name: transaction-demo
+  profiles:
+    active: ${profile:dev}
+  aop:
+    proxy-target-class: true
+  datasource:
+    druid: 
+      url: jdbc:mysql://172.16.60.247:3306/demo?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull
+      username: fd
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  mapperLocations: classpath:mybatis/*.xml
+  typeAliasesPackage: com.suixingpay.takin.transaction.demo.to
+  configuration:
+    cacheEnabled: false
+    default-statement-timeout: 5
+
+suixingpay: 
+  transaction:
+    enabled: true
+    # dataSourceName: dataSource # 数据源名称
+    # transactionBeanNames: # 自定义事务 BeanName 拦截
+    # readOnlyTransactionAttributes: #自定义方法名的事务属性相关联,可以使用通配符(*)字符关联相同的事务属性的设置方法; 只读事务
+    # requiredTransactionAttributes: #自定义方法名的事务属性相关联,可以使用通配符(*)字符关联相同的事务属性的设置方法;传播方式：PROPAGATION_REQUIRED。 默认值："add*", "save*", "insert*","delete*", "update*", "edit*", "batch*", "create*", "remove*"
+    # requiredNewTransactionAttributes: 自定义方法名的事务属性相关联,可以使用通配符(*)字符关联相同的事务属性的设置方法;传播方式：PROPAGATION_REQUIRES_NEW。
+    multi:
+     - 
+       dataSourceName: dataSource
+       basePackage: com.suixingpay.takin.transaction.demo.service 
+       #transactionManagerName: transactionManager # Bean 名称，选填，如果没有填写，默认使用dataSourceName+"TransactionManager"
+  token:
+    enabled: false
+  swagger2: 
+    title: demo 
+    description: demo
+    contact:
+      name: matieli
+      url: http://vbill.cn
+      email: ma_tl@suixingpay.com
+    base-package: com.suixingpay.takin.transaction.demo
+    base-path: /**
+    exclude-path: /error, /ops/**

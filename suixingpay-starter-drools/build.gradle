@@ -1,0 +1,13 @@
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter')
+	compile('org.springframework.boot:spring-boot-starter-freemarker')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile "org.apache.commons:commons-lang3:$commonsLang3Version"
+	compile('org.drools:drools-compiler:6.5.0.Final')
+	compile("org.kie:kie-ci:6.5.0.Final")
+	compile('org.kie:kie-spring:6.5.0.Final')
+	compileOnly('org.projectlombok:lombok')
+		
+}
+description = "规则引擎"
+

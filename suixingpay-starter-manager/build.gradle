@@ -1,0 +1,6 @@
+dependencies {
+    compileOnly "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-autoconfigure"
+    compileOnly "javax.servlet:javax.servlet-api"
+}
+description = "管理器"

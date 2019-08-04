@@ -1,0 +1,13 @@
+dependencies {
+  compile project(":suixingpay-starter-mybatis")
+  compile project(":suixingpay-starter-exception")
+  compile "com.github.jsqlparser:jsqlparser:$jSqlParserVersion"
+  compile "org.springframework.boot:spring-boot-autoconfigure"
+
+  compileOnly("org.projectlombok:lombok")
+  testCompile "org.springframework.boot:spring-boot-starter-web"
+  testCompile "org.springframework.boot:spring-boot-starter-test"
+  testCompile "com.alibaba:druid-spring-boot-starter:$druidSpringBootStarterVersion"
+  testCompile("com.oracle:ojdbc6:11.2.0.4")
+}
+description = "MyBatis分页插件"

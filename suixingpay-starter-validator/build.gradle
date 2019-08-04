@@ -1,0 +1,8 @@
+dependencies {
+    compile project(":suixingpay-starter-util")
+    compile "org.springframework:spring-webmvc"
+    compile "org.springframework.boot:spring-boot-autoconfigure"
+    compile "org.hibernate:hibernate-validator"
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+}
+description = "校验组件"

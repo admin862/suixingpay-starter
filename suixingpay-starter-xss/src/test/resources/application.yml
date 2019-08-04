@@ -1,0 +1,22 @@
+#基本信息
+info:
+  application: xss-demo
+  description: xss-demo
+  author: jiayu.qiu
+
+spring: 
+  application:
+    name: xss-demo
+server:
+  port: ${port:8080}
+
+suixingpay: 
+  xss:
+    enabled: true
+    filter-name: sxfXssFilter
+    url-patterns:
+    - '/*'
+  token:
+    enabled: false
+
+

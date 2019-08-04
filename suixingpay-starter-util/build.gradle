@@ -1,0 +1,10 @@
+dependencies {   
+    compile "com.google.guava:guava"
+    compile "org.apache.commons:commons-lang3:$commonsLang3Version"
+    compile "org.slf4j:slf4j-api"
+    compileOnly "com.fasterxml.jackson.core:jackson-databind"
+    compileOnly("org.projectlombok:lombok")
+
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+}
+description = "JAVA工具包"

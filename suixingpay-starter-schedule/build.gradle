@@ -1,0 +1,7 @@
+dependencies {
+	compileOnly project(":suixingpay-starter-util")
+    compile('org.springframework.boot:spring-boot-starter')
+	compileOnly('org.projectlombok:lombok')
+}
+description = "热加载定时任务"
+

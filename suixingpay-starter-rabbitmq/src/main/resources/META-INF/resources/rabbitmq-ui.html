@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>RabbitMQ消费者</title>
+    <link type="text/css" rel="stylesheet" href="webjars/manager-ui/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="webjars/manager-ui/css/bootstrap-vue.css"/>
+</head>
+<body>
+<div id="app">
+    <b-navbar-brand href="#">RabbitMQ消费者状态操作</b-navbar-brand>
+    <b-alert variant="danger"
+             dismissible
+             :show="showDismissibleAlert"
+             @dismissed="showDismissibleAlert=false">
+        消费者操作异常
+    </b-alert>
+    <!-- b-table 获取数据和数据名称 :items  :fields -->
+    <b-table striped hover :items="items" :fields="fields">
+        <!-- slot的值关联 table当中 Field 的key值 ，以此进行绑定。 slot-scope的值为 每行的对象（内置） -->
+        <template slot="opt" slot-scope="row">
+            <b-btn @click="showModal(row.item, event)" v-if="row.item.running == false" size="" variant="success">
+                start
+            </b-btn>
+            <b-btn @click="showModal(row.item, event)" v-else size="" variant="secondary">
+                stop
+            </b-btn>
+        </template>
+    </b-table>
+    <!--模态b-model 中自带的两个时间 ok cancel可以用 @ok="方法名" 和 @cancel="" 来进行自定义 -->
+    <b-modal id="startConfirm" title="Warning" @ok="handleOk('start')">
+        <p class="my-4">确定start消费者？</p>
+    </b-modal>
+    <b-modal id="stopConfirm" title="Warning" @ok="handleOk('stop')">
+        <p class="my-4">确定stop消费者？</p>
+    </b-modal>
+</div>
+</body>
+
+<script src="webjars/manager-ui/js/vue.min.js"></script>
+<script src="webjars/manager-ui/js/axios.min.js"></script>
+<script src="webjars/manager-ui/js/polyfill.min.js"></script>
+<script src="webjars/manager-ui/js/bootstrap-vue.js"></script>
+<script src="webjars/rabbitmq-ui/js/list.js"></script>
+</html>

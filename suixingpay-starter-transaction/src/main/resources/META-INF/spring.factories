@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.suixingpay.takin.transaction.autoconfigure.TransactionManagerAutoConfiguration,\
+  com.suixingpay.takin.transaction.autoconfigure.DynamicDatasourceHelperConfiguration

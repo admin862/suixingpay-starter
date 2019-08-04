@@ -1,0 +1,11 @@
+dependencies {
+    compile project(":suixingpay-starter-serializer")
+    compile "org.springframework.boot:spring-boot-autoconfigure"
+    compile "org.springframework.boot:spring-boot-starter-data-redis"
+    compileOnly("org.springframework.boot:spring-boot-configuration-processor")// 用于生成文件META-INF/spring-configuration-metadata.json
+    compileOnly("org.projectlombok:lombok")
+    
+    testCompile "org.springframework.boot:spring-boot-starter-web"
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+}
+description = "Redis操作工具"
