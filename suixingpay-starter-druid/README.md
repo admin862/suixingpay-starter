@@ -16,7 +16,7 @@
             druid:
               username: fd
               password: 123456
-              url: jdbc:mysql://172.16.60.247:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=false
+              url: jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=false
 
 ### 2. 加解密
 #### 1.方式一: 使用 filter
@@ -79,7 +79,7 @@
 	  datasource:
 	    druid:        
 	      query:
-	        url: jdbc:oracle:thin:@172.16.135.252:1521/ACCOUNT
+	        url: jdbc:oracle:thin:@127.0.0.1:1521/ACCOUNT
 	        username: query
 	        password: D8B5719A5BCF49700985958D719A06E3
 	        driver-class-name: oracle.jdbc.OracleDriver
