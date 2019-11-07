@@ -5,7 +5,7 @@ spring:
     proxyTargetClass: true
 #  datasource: 
 #    druid: 
-#      url: jdbc:oracle:thin:@172.16.135.252:1521/bapdb
+#      url: jdbc:oracle:thin:@127.0.0.1:1521/bapdb
 #      username: portal
 #      password: portal_sit
 #      driverClassName: oracle.jdbc.OracleDriver
