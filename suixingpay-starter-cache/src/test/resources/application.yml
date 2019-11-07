@@ -8,10 +8,10 @@ spring:
         druid:
             driver-class-name: com.mysql.jdbc.Driver
             password: test1234
-            url: jdbc:mysql://192.168.176.131:3306/cache_demo?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull
+            url: jdbc:mysql://127.0.0.1:3306/cache_demo?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull
             username: root
     redis:
-        host: 172.16.60.189
+        host: 127.0.0.1
         pool:
             maxActive: 2048
             maxIdle: 200
