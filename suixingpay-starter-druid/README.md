@@ -40,7 +40,7 @@
               connection-properties: config.decrypt=true;config.decrypt.key=${spring.datasource.druid.publickey}
               username: fd
               password: WVMjPhfXQrIsWRo0/RCqAVvYtTU9WNVToKJohb8AlUmHwnV6vwFL+FM2CNFDMJwGHW1iCmyaUlF+sgvFdogqEA==
-              url: jdbc:mysql://172.16.60.247:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=false
+              url: jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=false
               filter:
                 config:
                   enabled: true # 必须设置为true
